@@ -99,7 +99,7 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
-          ref: ${{ github.ref_name }}
+          ref: main
 
       - name: Install Rust
         uses: actions-rs/toolchain@v1
@@ -122,9 +122,9 @@ jobs:
           echo "Current tag: $CURRENT_TAG"
 
           if [ -z "$PREV_TAG" ]; then
-            git-cliff "$CURRENT_TAG" -c cliff.toml -o RELEASE_NOTES.md
+            git-cliff -c cliff.toml --tag "$CURRENT_TAG" -o RELEASE_NOTES.md
           else
-            git-cliff "$PREV_TAG..$CURRENT_TAG" -c cliff.toml -o RELEASE_NOTES.md
+            git-cliff -c cliff.toml --latest -o RELEASE_NOTES.md
           fi
 
       - name: Create or update GitHub Release

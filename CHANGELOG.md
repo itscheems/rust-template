@@ -6,9 +6,9 @@
 
 ### Miscellaneous Tasks
 
-- **(ci)** add git-cliff changelog generation setup (by @itscheems)- ([272d6c9](https://github.com/itscheems/rust-template/commit/272d6c998533240df065c09aaf0d91316f1706ca))
-- **(release)** add GitHub Release creation workflow (by @itscheems)- ([aa26d0c](https://github.com/itscheems/rust-template/commit/aa26d0c79b27b7cf38af1f5bfaaa514fbce94dcd))
-- update the file extension of the action file (by @itscheems)- ([dd26aad](https://github.com/itscheems/rust-template/commit/dd26aadf0c1f25f32847b2ddb8564141a6fe82fc))
+- **(ci)** add git-cliff changelog generation setup (by @itscheems) - ([272d6c9](https://github.com/itscheems/rust-template/commit/272d6c998533240df065c09aaf0d91316f1706ca))
+- **(release)** add GitHub Release creation workflow (by @itscheems) - ([aa26d0c](https://github.com/itscheems/rust-template/commit/aa26d0c79b27b7cf38af1f5bfaaa514fbce94dcd))
+- update the file extension of the action file (by @itscheems) - ([dd26aad](https://github.com/itscheems/rust-template/commit/dd26aadf0c1f25f32847b2ddb8564141a6fe82fc))
 
 ## New Contributors ❤️
 
@@ -17,15 +17,15 @@
 
 ### Features
 
-- add Dockerfile (by @itscheems)- ([17b49eb](https://github.com/itscheems/rust-template/commit/17b49eb7dba14bafb3500e3f7bafe8f310d34a5f))
+- add Dockerfile (by @itscheems) - ([17b49eb](https://github.com/itscheems/rust-template/commit/17b49eb7dba14bafb3500e3f7bafe8f310d34a5f))
 
 ### Miscellaneous Tasks
 
-- **(docs)** update README (by @itscheems)- ([58065e2](https://github.com/itscheems/rust-template/commit/58065e2280fc51718de10f45d805e7ee3bce2f1c))
-- update config (by @itscheems)- ([20fc69a](https://github.com/itscheems/rust-template/commit/20fc69ab0431fa492bdba25378538707c33b3986))
-- update rustfmt.toml (by @itscheems)- ([7f643ea](https://github.com/itscheems/rust-template/commit/7f643ea57536b01637327bd2569886fcc98bb8d6))
-- add pr-check CI (by @itscheems)- ([f043754](https://github.com/itscheems/rust-template/commit/f043754e382bcf34eab22715266a771e3334d9a5))
-- align toolchain to 1.92, lock builds, and enforce fmt/lints in CI (by @itscheems)- ([9a8f858](https://github.com/itscheems/rust-template/commit/9a8f85814581eb069973d96923a9002e2d791130))
+- **(docs)** update README (by @itscheems) - ([58065e2](https://github.com/itscheems/rust-template/commit/58065e2280fc51718de10f45d805e7ee3bce2f1c))
+- update config (by @itscheems) - ([20fc69a](https://github.com/itscheems/rust-template/commit/20fc69ab0431fa492bdba25378538707c33b3986))
+- update rustfmt.toml (by @itscheems) - ([7f643ea](https://github.com/itscheems/rust-template/commit/7f643ea57536b01637327bd2569886fcc98bb8d6))
+- add pr-check CI (by @itscheems) - ([f043754](https://github.com/itscheems/rust-template/commit/f043754e382bcf34eab22715266a771e3334d9a5))
+- align toolchain to 1.92, lock builds, and enforce fmt/lints in CI (by @itscheems) - ([9a8f858](https://github.com/itscheems/rust-template/commit/9a8f85814581eb069973d96923a9002e2d791130))
 
 ## New Contributors ❤️
 
