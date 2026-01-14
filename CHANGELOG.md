@@ -7,6 +7,7 @@
 ### Miscellaneous Tasks
 
 - **(ci)** add git-cliff changelog generation setup (by @itscheems)- ([272d6c9](https://github.com/itscheems/rust-template/commit/272d6c998533240df065c09aaf0d91316f1706ca))
+- **(release)** add GitHub Release creation workflow (by @itscheems)- ([aa26d0c](https://github.com/itscheems/rust-template/commit/aa26d0c79b27b7cf38af1f5bfaaa514fbce94dcd))
 - update the file extension of the action file (by @itscheems)- ([dd26aad](https://github.com/itscheems/rust-template/commit/dd26aadf0c1f25f32847b2ddb8564141a6fe82fc))
 
 ## New Contributors ❤️
