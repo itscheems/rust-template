@@ -2,7 +2,8 @@
 
 # Changelog
 
-## [unreleased]
+## [v0.2.1-alpha] - 2026-01-15
+
 ### Bug Fixes
 
 - **(ci)** use correct tag name for workflow_dispatch releases (by @[itscheems](https://github.com/itscheems)) - ([5bd397f](https://github.com/itscheems/rust-template/commit/5bd397fdbe870e379137fcc18315eb756bd46eb0))

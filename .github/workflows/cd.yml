@@ -105,10 +105,6 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
-          # For workflow_dispatch, checkout default branch (tag may not exist yet)
-          # The release action will create the tag if it doesn't exist
-          # For push tags, checkout the tag directly
-          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref || github.ref_name }}
 
       - name: Install Rust
         uses: actions-rs/toolchain@v1
@@ -119,6 +115,15 @@ jobs:
 
       - name: Install git-cliff
         run: cargo install git-cliff --force
+
+      - name: Ensure default branch
+        run: |
+          DEFAULT_BRANCH=$(git remote show origin | grep "HEAD branch" | awk '{print $NF}')
+          echo "Default branch: $DEFAULT_BRANCH"
+
+          git fetch origin "$DEFAULT_BRANCH"
+          git checkout "$DEFAULT_BRANCH"
+          git branch --set-upstream-to=origin/"$DEFAULT_BRANCH"
 
       - name: Determine tag name
         id: tag
@@ -133,19 +138,17 @@ jobs:
 
       - name: Generate release notes for current tag
         env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           CURRENT_TAG="${{ steps.tag.outputs.tag_name }}"
-          PREV_TAG=$(git tag --sort=-creatordate | grep -v "^${CURRENT_TAG}$" | head -n 1)
-
-          echo "Previous tag: $PREV_TAG"
-          echo "Current tag: $CURRENT_TAG"
-
-          if [ -z "$PREV_TAG" ]; then
-            git-cliff -c cliff.toml --tag "$CURRENT_TAG" -o RELEASE_NOTES.md
-          else
-            git-cliff -c cliff.toml --latest -o RELEASE_NOTES.md
-          fi
+          echo "Generating release notes for $CURRENT_TAG"
+          git-cliff \
+            -c cliff.toml \
+            --tag "$CURRENT_TAG" \
+            --github-repo "$GITHUB_REPOSITORY" \
+            -o RELEASE_NOTES.md \
+            --verbose
 
       - name: Create or update GitHub Release
         uses: softprops/action-gh-release@v2
