@@ -142,13 +142,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           CURRENT_TAG="${{ steps.tag.outputs.tag_name }}"
-          echo "Generating release notes for $CURRENT_TAG"
-          git-cliff \
-            -c cliff.toml \
-            --tag "$CURRENT_TAG" \
-            --github-repo "$GITHUB_REPOSITORY" \
-            -o RELEASE_NOTES.md \
-            --verbose
+          PREV_TAG=$(git tag --sort=-creatordate | grep -v "^${CURRENT_TAG}$" | head -n 1)
+
+          echo "Previous tag: ${PREV_TAG}"
+          echo "Current tag:  ${CURRENT_TAG}"
+
+          if [ -z "$PREV_TAG" ]; then
+            echo "No previous tag found, generating first release notes"
+            git-cliff \
+              -c cliff.toml \
+              --tag "$CURRENT_TAG" \
+              --github-repo "$GITHUB_REPOSITORY" \
+              -o RELEASE_NOTES.md \
+              --verbose
+          else
+            echo "Generating release notes for range ${PREV_TAG}..${CURRENT_TAG}"
+            git-cliff \
+              -c cliff.toml \
+              "${PREV_TAG}..${CURRENT_TAG}" \
+              --tag "$CURRENT_TAG" \
+              --github-repo "$GITHUB_REPOSITORY" \
+              -o RELEASE_NOTES.md \
+              --verbose
+          fi
 
       - name: Create or update GitHub Release
         uses: softprops/action-gh-release@v2
