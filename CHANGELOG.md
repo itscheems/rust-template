@@ -8,6 +8,10 @@
 
 - **(ci)** use correct tag name for workflow_dispatch releases (by @[itscheems](https://github.com/itscheems)) - ([5bd397f](https://github.com/itscheems/rust-template/commit/5bd397fdbe870e379137fcc18315eb756bd46eb0))
 
+### Miscellaneous Tasks
+
+- **(ci)** update action conf (by @[itscheems](https://github.com/itscheems)) - ([86824bb](https://github.com/itscheems/rust-template/commit/86824bb17725a0b49b08cf4f1b15ba149bf0bbe6))
+
 ## [v0.2.0-alpha] - 2026-01-14
 
 ### Miscellaneous Tasks
